@@ -566,3 +566,7 @@ class _RawWebGpuTriangleState extends State<RawWebGpuTriangle> with SingleTicker
 }
 
 ```
+
+# History
+
+This project started as a fork of https://github.com/google/flutter-sw-rend which can render bitmaps via method channels. First I added FFI to that project to reduce latency when uploading to the GPU. Then I wanted to add some shaders, so I created dx11 and OpenGL ES backends, using a shader translation layer from hlsl to glsl. Eventually that became difficult to manage so I switched to WebGPU, resulting in https://github.com/jacksonrl/flutter_webgpu_rend. After that, I decided to factor out the code relating to flutter native textures so others can perhaps make use of it (hence the name). Becuase of this, the code quality is varried, as sections got rewritten multiple times. It would probably look different had I started from scratch. Additionally, the project is currently only geared toward dawn WebGPU, and only tested for my specific use case, so some features may be missing or incomplete. 
